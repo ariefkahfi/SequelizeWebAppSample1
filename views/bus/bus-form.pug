@@ -1,0 +1,19 @@
+extends ../layout
+
+block main_content
+    form(action="/bus", method="post")
+        .form-group.row
+            label(for="bus_name",class="col-12 col-sm-12 col-md-12 col-lg-3 col-form-label") Bus Name
+            .col-12.col-sm-12.col-md-12.col-lg-9#bus_name
+                input(type="text", name="bus_name",class="form-control")
+        .form-group.row
+            label(for="origin",class="col-12 col-sm-12 col-md-12 col-lg-3 col-form-label") Bus Origin
+            .col-12.col-sm-12.col-md-12.col-lg-9#origin
+                input(type="text",name="origin",class="form-control")
+        .form-group.row
+            label(for="destination",class="col-12 col-sm-12 col-md-12 col-lg-3 col-form-label") Bus Destination
+            .col-12.col-sm-12.col-md-12.col-lg-9#destination
+                input(type="text",name="destination",class="form-control")
+        .form-group.row.mb-0
+            .col-12
+                button(value="Submit Data",class="btn btn-primary w-100") Submit Data

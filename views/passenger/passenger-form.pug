@@ -1,0 +1,23 @@
+extends ../layout
+
+block main_content
+    form(action="/passenger", method="post")
+        .form-group.row
+            label(for="p_name",class="col-12 col-sm-12 col-md-12 col-lg-3 col-form-label") Name
+            .col-12.col-sm-12.col-md-12.col-lg-9#p_name
+                input(type="text",name="p_name",class="form-control")
+        .form-group.row
+            label(for="p_address",class="col-12 col-sm-12 col-md-12 col-lg-3 col-form-label") Address
+            .col-12.col-sm-12.col-md-12.col-lg-9#p_address
+                input(type="text",name="p_address",class="form-control")
+        .form-group.row
+            label(for="p_phone",class="col-12 col-sm-12 col-md-12 col-lg-3 col-form-label") Phone
+            .col-12.col-sm-12.col-md-12.col-lg-9#p_phone
+                input(type="tel", name="p_phone",class="form-control")
+        .form-group.row
+            label(for="p_bus",class="col-12 col-sm-12 col-md-12 col-lg-3 col-form-label") Which bus this passenger belongs to
+            .col-12.col-sm-12.col-md-12.col-lg-9#p_bus
+                select(name="p_bus",class="form-control")
+        .form-group.row.mb-0
+            .col-12
+                button(class="btn btn-primary w-100",value="Submit Data") Submit Data     
