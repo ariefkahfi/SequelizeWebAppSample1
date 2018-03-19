@@ -1,0 +1,20 @@
+extends ../layout
+
+
+block main_content
+    form(action="/driver", method="post")
+        .form-group.row
+            label(for="driver_id",class="col-12 col-sm-12 col-md-12 col-lg-3 col-form-label") Driver's Id
+            .col-12.col-sm-12.col-md-12.col-lg-9#driver_id
+                input(type="text",class="form-control",name="driver_id")   
+        .form-group.row
+            label(for="driver_name",class="col-12 col-sm-12 col-md-12 col-lg-3 col-form-label") Driver's Name
+            .col-12.col-sm-12.col-md-12.col-lg-9#driver_name
+                input(type="text",class="form-control",name="driver_name")
+        .form-group.row
+            label(for="bus_id",class="col-12 col-sm-12 col-md-12 col-lg-3 col-form-label") Driver's Bus
+            .col-12.col-sm-12.col-md-12.col-lg-9#bus_id
+                select(name="bus_id",class="form-control")
+        .form-group.row.mb-0
+            .col-12
+                button(value="Submit Data",class="btn btn-primary w-100") Submit Data                

@@ -18,9 +18,11 @@ app.get("/",(req,res)=>{
 
 const BusRouter = require("./routers/bus-router");
 const PassengerRouter = require("./routers/passenger-router");
+const DriverRouter = require("./routers/driver-router");
 
 app.use("/passenger",new PassengerRouter().router);
 app.use("/bus",new BusRouter().router);
+app.use("/driver",new DriverRouter().router);
 
 app.listen(9600,()=>{
     console.log("listening on port 9600");

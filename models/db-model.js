@@ -14,6 +14,9 @@ class DatabaseModel {
         return sequelize.sync({force: forceIt})
     }
 
+// driver model has foreign key (bus_id)
+// passenger model has foreign key (bus_id)
+
     doRelation(){
         this.Driver.belongsTo(this.Bus,{
             foreignKey:"bus_id"
