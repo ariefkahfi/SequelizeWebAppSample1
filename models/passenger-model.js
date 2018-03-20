@@ -2,15 +2,14 @@ const DBModel = require("./db-model");
 const BusModel = require("./bus-model");
 
 const dbModel = new DBModel();
-const busModel = new BusModel();
-
 class PassengerModel {
     savePassenger(passenger){
         return dbModel.Passenger.create(passenger)
     }
-    savePassengerAndSetBus(passenger,bus_id){
+
+    async savePassengerAndSetBus(passenger,bus_id){
         let sPassenger = await this.savePassenger(passenger);
-        let getBusById = await busModel.getBusById(bus_id);
+        let getBusById = await dbModel.Bus.findById(bus_id);
         return sPassenger.setBus(getBusById)
     }
     getPassengers(){

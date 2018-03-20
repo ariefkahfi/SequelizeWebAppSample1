@@ -1,4 +1,5 @@
 const path = require("path");
+const UUID = require("uuid");
 const PassengerModel = require("../models/passenger-model");
 const BusModel = require("../models/bus-model");
 
@@ -30,7 +31,25 @@ class PassengerRouter {
 
         this.router.post("/",(req,res)=>{
             console.log(req.body);
-            res.redirect("back");
+            let passengerId = UUID.v4();
+            let passengerName = req.body.p_name;
+            let passengerAddr = req.body.p_address;
+            let passengerPhone = req.body.p_phone;
+            let passengerBusId = req.body.p_bus;
+            
+            passengerModel.savePassengerAndSetBus({
+                passenger_id: passengerId,
+                passenger_name: passengerName,
+                passenger_address: passengerAddr,
+                passenger_phone: passengerPhone
+            },passengerBusId)
+                .then(()=>{
+                    res.redirect("back");
+                }).catch(err=>{
+                    console.error(err);
+                    res.sendStatus(500);
+                });
+
         });
     }
 }
