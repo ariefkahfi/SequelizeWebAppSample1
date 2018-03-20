@@ -13,6 +13,9 @@ class DatabaseModel {
     syncAllTables(forceIt){
         return sequelize.sync({force: forceIt})
     }
+    getSequelize(){
+        return sequelize;
+    }
 
 // driver model has foreign key (bus_id)
 // passenger model has foreign key (bus_id)
