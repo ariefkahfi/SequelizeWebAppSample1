@@ -12,20 +12,17 @@ class DriverRouter{
     }
     initAllRouters() {
         this.router.get("/",(req,res)=>{
-            busModel.getBusses()
-                .then(data=>{
+            busModel
+                .getBussesWithoutDriver()
+                .spread((data,metadata)=>{
                     let jsonString = JSON.stringify(data);
                     let parsedJSON = JSON.parse(jsonString);
                     res.render(path.join("driver","driver-form"),{
                         title:"Add new Driver",
                         main_content_title:"Form Content",
                         busses:parsedJSON
-                    });
-                })
-                .catch(err=>{
-                    console.error(err);
-                    res.sendStatus(500);
-                })
+                });
+            })
         });
         this.router.post("/",(req,res)=>{
             console.log(req.body);

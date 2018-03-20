@@ -18,6 +18,8 @@ block main_content
             label(for="p_bus",class="col-12 col-sm-12 col-md-12 col-lg-3 col-form-label") Which bus this passenger belongs to
             .col-12.col-sm-12.col-md-12.col-lg-9#p_bus
                 select(name="p_bus",class="form-control")
+                    each b in busses
+                        option(value=b.bus_id)= b.bus_name 
         .form-group.row.mb-0
             .col-12
                 button(class="btn btn-primary w-100",value="Submit Data") Submit Data     
